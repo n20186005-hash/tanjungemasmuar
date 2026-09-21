@@ -1,0 +1,282 @@
+---
+import { foodSpots, images, links, mapEmbedUrl, photoCredit, place } from '../data/market';
+import { home } from '../content/home';
+import { topicIds, topicSlug, topics, topicImage } from '../content/topics';
+import type { Locale } from '../i18n/locales';
+import { localePath } from '../i18n/locales';
+import { ui } from '../i18n/ui';
+import { rich } from '../lib/seo';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const c = home[locale];
+const t = ui[locale];
+
+const routeCards = c.transport.cards.map((card) => ({
+  ...card,
+  href: card.link ? (card.link.urlKey === 'bmj' ? links.bmj : links.maps) : undefined,
+}));
+
+const foodSpotLinks = c.food.spots.map((spot) => ({ ...spot, href: foodSpots[spot.id] }));
+
+const planIcons = [
+  '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  '<path d="M4 7h16l-2 11H6L4 7Z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/>',
+  '<path d="M5 17V8l2-3h10l2 3v9"/><path d="M3 17h18M7 17v2M17 17v2"/><circle cx="8" cy="12" r="1"/><circle cx="16" cy="12" r="1"/>',
+  '<path d="M4 19c4-8 12-8 16 0"/><circle cx="12" cy="7" r="3"/><path d="M3 12h3M18 12h3"/>',
+];
+const planSizes = ['info-card--wide', 'info-card--narrow', 'info-card--half', 'info-card--half'];
+const planCards = c.plan.cards.map((card, index) => ({
+  ...card,
+  icon: planIcons[index] ?? planIcons[0],
+  size: planSizes[index] ?? 'info-card--half',
+  bullets: card.bullets ?? [],
+  callout: card.callout ?? '',
+}));
+
+const topicCards = topicIds.map((id) => ({
+  id,
+  href: localePath(locale, topicSlug[id]),
+  title: topics[id][locale].card.title,
+  text: topics[id][locale].card.text,
+  image: topicImage[id],
+}));
+
+const credit = (caption: string) => `${caption} · ${t.photoPrefix} ${photoCredit.author} / ${photoCredit.source} · ${photoCredit.license}`;
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-media">
+    <img src={images.hero} alt={t.alt.hero} width="2200" height="955" fetchpriority="high" />
+  </div>
+  <div class="hero-content">
+    <div class="shell hero-grid">
+      <div>
+        <div class="hero-place">
+          <span class="pill"><i></i> {c.hero.pills[0]}</span>
+          <span class="pill">{c.hero.pills[1]}</span>
+        </div>
+        <h1 id="hero-title" class="display">{c.hero.title}</h1>
+        <p class="hero-sub">{c.hero.sub}</p>
+        <div class="hero-actions">
+          <a class="btn btn--gold" href="#rancang">
+            {t.heroCtaPlan}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+          <a class="btn btn--ghost" href={links.maps} target="_blank" rel="noopener noreferrer">
+            {t.heroCtaMap}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s6-5 6-11a6 6 0 1 0-12 0c0 6 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>
+          </a>
+        </div>
+      </div>
+      <aside class="hero-note" aria-label="Ringkasan penilaian">
+        <div class="score"><strong>{place.ratingValue}</strong><span>/ {place.bestRating}</span></div>
+        <p>{t.ratingNote}</p>
+      </aside>
+    </div>
+  </div>
+  <div class="hero-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 52" preserveAspectRatio="none"><path d="M0 26C236 50 345 2 594 20c258 19 361 34 573 7 117-15 200-13 273-4v29H0Z" fill="#FBFAF3" /></svg>
+  </div>
+</section>
+
+<section class="quick-strip" aria-label="Maklumat cepat">
+  <div class="shell quick-grid">
+    {c.quick.map((item) => (
+      <div class="quick-item"><b>{item.label}</b><span>{item.value}</span></div>
+    ))}
+  </div>
+</section>
+
+<section class="section" id="tentang">
+  <div class="shell story-grid">
+    <div class="story-copy">
+      <span class="section-kicker">{c.about.kicker}</span>
+      <h2 class="heading">{c.about.heading}</h2>
+      <p class="lead">{c.about.lead}</p>
+    </div>
+    <div class="story-list">
+      {c.about.cards.map((card) => (
+        <article class="story-card">
+          <div class="num">{String(c.about.cards.indexOf(card) + 1).padStart(2, '0')}</div>
+          <h3>{card.title}</h3>
+          <p>{card.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section photo-band" aria-labelledby="galeri-title">
+  <div class="shell">
+    <div class="photo-intro">
+      <div>
+        <span class="section-kicker" style="color:#E8AC54">{c.gallery.kicker}</span>
+        <h2 id="galeri-title" class="heading">{c.gallery.heading}</h2>
+      </div>
+      <p>{c.gallery.note}</p>
+    </div>
+    <div class="photo-layout">
+      <figure class="photo-main">
+        <img src={images.promenade} alt={t.alt.promenade} loading="lazy" width="2200" height="1650" />
+        <figcaption>{credit(c.gallery.captions[0])}</figcaption>
+      </figure>
+      <div class="photo-stack">
+        <figure>
+          <img src={images.sunset} alt={t.alt.sunset} loading="lazy" width="2200" height="1650" />
+          <figcaption>{credit(c.gallery.captions[1])}</figcaption>
+        </figure>
+        <figure>
+          <img src={images.shore} alt={t.alt.shore} loading="lazy" width="2200" height="1650" />
+          <figcaption>{credit(c.gallery.captions[2])}</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="rancang">
+  <div class="shell">
+    <span class="section-kicker">{c.plan.kicker}</span>
+    <h2 class="heading">{c.plan.heading}</h2>
+    <p class="lead">{c.plan.lead}</p>
+
+    <div class="info-board">
+      {planCards.map((card) => (
+        <article class:list={['info-card', card.size]}>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" set:html={card.icon}></svg></div>
+          <h3>{card.title}</h3>
+          <p set:html={rich(card.body)}></p>
+          {card.bullets.length > 0 && <ul>{card.bullets.map((bullet) => <li set:html={rich(bullet)}></li>)}</ul>}
+          {card.callout !== '' && <div class="callout">{card.callout}</div>}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section route-section" id="pengangkutan">
+  <div class="shell route-grid">
+    <div class="route-sticky">
+      <span class="section-kicker">{c.transport.kicker}</span>
+      <h2 class="heading">{c.transport.heading}</h2>
+      <p class="lead">{c.transport.lead}</p>
+      <p><a class="btn btn--gold" href={links.maps} target="_blank" rel="noopener noreferrer">{t.heroCtaMap}</a></p>
+    </div>
+    <div class="route-stack">
+      {routeCards.map((card) => (
+        <article class="route-card">
+          <div>
+            <h3>{card.title}</h3>
+            <p set:html={rich(card.body)}></p>
+            {card.link && <p><a href={card.href} target="_blank" rel="noopener noreferrer">{card.link.label}</a></p>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="peta">
+  <div class="shell">
+    <div class="map-head">
+      <div>
+        <span class="section-kicker">{c.map.kicker}</span>
+        <h2 class="heading">{c.map.heading}</h2>
+      </div>
+      <p>{c.map.note}</p>
+    </div>
+    <div class="map-wrap">
+      <iframe
+        src={mapEmbedUrl}
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title={t.alt.map}
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="section food-section" id="makan">
+  <div class="shell">
+    <span class="section-kicker">{c.food.kicker}</span>
+    <h2 class="heading">{c.food.heading}</h2>
+    <p class="lead">{c.food.lead}</p>
+    <div class="food-grid">
+      {c.food.cards.map((card, index) => (
+        <article class="food-card"><span class="food-no">{String(index + 1).padStart(2, '0')}</span><div><h3>{card.name}</h3><p>{card.text}</p></div></article>
+      ))}
+    </div>
+    <div class="food-spots" aria-label="Cadangan tempat makan sekitar Tanjung Emas">
+      {foodSpotLinks.map((spot) => (
+        <a class="food-spot" href={spot.href} target="_blank" rel="noopener noreferrer"><strong>{spot.name}</strong><span>{spot.text}</span><em>{t.checkMap}</em></a>
+      ))}
+    </div>
+    <p class="food-note">{c.food.note}</p>
+  </div>
+</section>
+
+<section class="section" id="sekitar">
+  <div class="shell">
+    <span class="section-kicker">{c.nearby.kicker}</span>
+    <h2 class="heading">{c.nearby.heading}</h2>
+    <p class="lead">{c.nearby.lead}</p>
+    <div class="nearby-grid">
+      {c.nearby.cards.map((card) => (
+        <article class="nearby-card"><span class="tag">{card.tag}</span><h3>{card.title}</h3><p>{card.text}</p></article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section topic-section" id="topik">
+  <div class="shell">
+    <span class="section-kicker">{t.topicsKicker}</span>
+    <h2 class="heading">{t.topicsHeading}</h2>
+    <div class="topic-grid">
+      {topicCards.map((card) => (
+        <a class="topic-card" href={card.href}>
+          <img src={card.image} alt="" loading="lazy" width="1200" height="700" />
+          <div class="topic-card__body">
+            <h3>{card.title}</h3>
+            <p>{card.text}</p>
+            <em>{t.topicsCta} →</em>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="shell faq-grid">
+    <div>
+      <span class="section-kicker">{t.faqKicker}</span>
+      <h2 class="heading">{t.faqHeading}</h2>
+      <p class="lead">{t.faqLead}</p>
+    </div>
+    <div class="faq-list">
+      {c.faq.map((item) => (
+        <details>
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+  <div class="shell source-box">
+    <span>{t.sourcesLabel}</span>
+    <div class="source-links">
+      <a href={links.official} target="_blank" rel="noopener noreferrer">{t.sources.official}</a>
+      <a href={links.bmj} target="_blank" rel="noopener noreferrer">{t.sources.bmj}</a>
+      <a href={links.commons} target="_blank" rel="noopener noreferrer">{t.sources.commons}</a>
+      <a href={links.maps} target="_blank" rel="noopener noreferrer">{t.sources.maps}</a>
+    </div>
+  </div>
+</section>

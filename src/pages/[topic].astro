@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopicPage from '../components/TopicPage.astro';
+import { topicIds, topicSlug, topicImage, topics, type TopicId } from '../content/topics';
+import { localePath, type Locale } from '../i18n/locales';
+import { ui } from '../i18n/ui';
+import { breadcrumbSchema, faqSchema } from '../lib/seo';
+
+export function getStaticPaths() {
+  return topicIds.map((id) => ({ params: { topic: topicSlug[id] } }));
+}
+
+const { topic } = Astro.params;
+const locale: Locale = 'ms';
+const entry = topicIds.find((id) => topicSlug[id] === topic);
+const topicId = (entry ?? 'jeti') as TopicId;
+const c = topics[topicId][locale];
+const site = Astro.site as URL;
+const pageUrl = new URL(localePath(locale, topicSlug[topicId]), site).href;
+
+const jsonLd = [
+  breadcrumbSchema([
+    { name: ui[locale].breadcrumbHome, url: new URL(localePath(locale), site).href },
+    { name: c.card.title, url: pageUrl },
+  ]),
+  faqSchema(c.faqs),
+];
+---
+<BaseLayout
+  locale={locale}
+  title={c.meta.title}
+  description={c.meta.description}
+  slug={topicSlug[topicId]}
+  ogImage={topicImage[topicId]}
+  jsonLd={jsonLd}
+>
+  <TopicPage locale={locale} topicId={topicId} />
+</BaseLayout>

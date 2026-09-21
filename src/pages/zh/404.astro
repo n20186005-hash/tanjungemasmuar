@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { place } from '../../data/market';
+import { topicIds, topicSlug, topics } from '../../content/topics';
+import { localePath, type Locale } from '../../i18n/locales';
+import { ui } from '../../i18n/ui';
+
+const locale: Locale = 'zh';
+const t = ui[locale];
+---
+<BaseLayout
+  locale={locale}
+  title={`${t.notFoundTitle} · ${place.name}`}
+  description={t.notFoundLead}
+  headerVariant="solid"
+  noindex
+>
+  <section class="section notfound">
+    <div class="shell">
+      <span class="section-kicker">404</span>
+      <h1 class="display">{t.notFoundTitle}</h1>
+      <p class="lead">{t.notFoundLead}</p>
+      <p><a class="btn btn--gold" href={localePath(locale)}>{t.notFoundCta}</a></p>
+      <div class="topic-grid">
+        {topicIds.map((id) => (
+          <a class="topic-card" href={localePath(locale, topicSlug[id])}>
+            <div class="topic-card__body">
+              <h3>{topics[id][locale].card.title}</h3>
+              <p>{topics[id][locale].card.text}</p>
+              <em>{t.topicsCta} →</em>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

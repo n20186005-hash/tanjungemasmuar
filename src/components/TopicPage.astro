@@ -1,0 +1,110 @@
+---
+import { images, links, place } from '../data/market';
+import { topicIds, topicSlug, topics, topicImage, type TopicId } from '../content/topics';
+import type { Locale } from '../i18n/locales';
+import { localePath } from '../i18n/locales';
+import { ui } from '../i18n/ui';
+import { rich } from '../lib/seo';
+
+interface Props {
+  locale: Locale;
+  topicId: TopicId;
+}
+const { locale, topicId } = Astro.props;
+const c = topics[topicId][locale];
+const t = ui[locale];
+const related = topicIds.filter((id) => id !== topicId).map((id) => ({
+  href: localePath(locale, topicSlug[id]),
+  title: topics[id][locale].card.title,
+  text: topics[id][locale].card.text,
+  image: topicImage[id],
+}));
+---
+
+<section class="topic-hero" aria-labelledby="topic-title">
+  <div class="topic-hero-media">
+    <img src={topicImage[topicId]} alt={c.card.title} width="2200" height="955" fetchpriority="high" />
+  </div>
+  <div class="shell topic-hero-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={localePath(locale)}>{t.breadcrumbHome}</a>
+      <span aria-hidden="true">/</span>
+      <span>{c.card.title}</span>
+    </nav>
+    <span class="section-kicker section-kicker--light">{c.kicker}</span>
+    <h1 id="topic-title" class="display">{c.h1}</h1>
+    <p class="hero-sub">{c.lead}</p>
+    <div class="hero-actions">
+      <a class="btn btn--gold" href={links.maps} target="_blank" rel="noopener noreferrer">
+        {t.heroCtaMap}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s6-5 6-11a6 6 0 1 0-12 0c0 6 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>
+      </a>
+      <a class="btn btn--ghost" href={localePath(locale)}>{t.breadcrumbHome}</a>
+    </div>
+  </div>
+</section>
+
+<section class="quick-strip" aria-label="Ringkasan">
+  <div class="shell quick-grid">
+    {c.facts.map((fact) => (
+      <div class="quick-item"><b>{fact.label}</b><span>{fact.value}</span></div>
+    ))}
+  </div>
+</section>
+
+<section class="section section--tight" id="isi">
+  <div class="shell topic-blocks">
+    {c.blocks.map((block) => (
+      <article class="info-card topic-block">
+        <h3>{block.heading}</h3>
+        {block.paragraphs && block.paragraphs.map((paragraph) => <p set:html={rich(paragraph)}></p>)}
+        {block.bullets && <ul>{block.bullets.map((bullet) => <li set:html={rich(bullet)}></li>)}</ul>}
+        {block.callout && <div class="callout">{block.callout}</div>}
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="section section--tight" id="faq">
+  <div class="shell faq-grid">
+    <div>
+      <span class="section-kicker">{t.faqKicker}</span>
+      <h2 class="heading">{c.card.title}</h2>
+      <p class="lead">{t.faqLead}</p>
+    </div>
+    <div class="faq-list">
+      {c.faqs.map((item) => (
+        <details>
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight" id="berkaitan">
+  <div class="shell">
+    <span class="section-kicker">{t.relatedHeading}</span>
+    <div class="topic-grid">
+      {related.map((card) => (
+        <a class="topic-card" href={card.href}>
+          <img src={card.image} alt="" loading="lazy" width="1200" height="700" />
+          <div class="topic-card__body">
+            <h3>{card.title}</h3>
+            <p>{card.text}</p>
+            <em>{t.topicsCta} →</em>
+          </div>
+        </a>
+      ))}
+      <a class="topic-card" href={localePath(locale)}>
+        <img src={images.hero} alt="" loading="lazy" width="1200" height="700" />
+        <div class="topic-card__body">
+          <h3>{place.name}</h3>
+          <p>{t.notFoundCta}</p>
+          <em>{t.topicsCta} →</em>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

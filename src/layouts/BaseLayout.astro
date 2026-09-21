@@ -1,0 +1,85 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { googleAnalyticsId, place } from '../data/market';
+import { localeMeta, locales, localePath, type Locale } from '../i18n/locales';
+import '../styles/global.css';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  slug?: string;
+  ogImage?: string;
+  jsonLd?: unknown[];
+  headerVariant?: 'overlay' | 'solid';
+  noindex?: boolean;
+}
+
+const {
+  locale,
+  title,
+  description,
+  slug = '',
+  ogImage,
+  jsonLd = [],
+  headerVariant = 'overlay',
+  noindex = false,
+} = Astro.props;
+
+const meta = localeMeta[locale];
+const site = Astro.site as URL;
+const canonicalUrl = new URL(localePath(locale, slug), site).href;
+const ogImageUrl = ogImage ? new URL(ogImage, site).href : undefined;
+const alternateLinks = [
+  ...locales.map((code) => ({ hreflang: localeMeta[code].hreflang, href: new URL(localePath(code, slug), site).href })),
+  { hreflang: 'x-default', href: new URL(localePath('ms', slug), site).href },
+];
+---
+<!doctype html>
+<html lang={meta.htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {alternateLinks.map((link) => <link rel="alternate" hreflang={link.hreflang} href={link.href} />)}
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta name="theme-color" content="#0E2E3B" />
+    <meta name="color-scheme" content="light" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={place.name} />
+    <meta property="og:locale" content={meta.ogLocale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+    <meta name="twitter:card" content={ogImageUrl ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+    <meta name="geo.region" content="MY-01" />
+    <meta name="geo.placename" content="Muar" />
+    <meta name="geo.position" content={`${place.latitude};${place.longitude}`} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    {jsonLd.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>)}
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script>
+    <script is:inline define:vars={{ gaId: googleAnalyticsId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gaId);
+    </script>
+  </head>
+  <body id="atas">
+    <SiteHeader locale={locale} slug={slug} variant={headerVariant} />
+    <main>
+      <slot />
+    </main>
+    <SiteFooter locale={locale} slug={slug} />
+  </body>
+</html>

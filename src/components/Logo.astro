@@ -2,10 +2,11 @@
 interface Props {
   compact?: boolean;
   light?: boolean;
+  href?: string;
 }
-const { compact = false, light = false } = Astro.props;
+const { compact = false, light = false, href = '#atas' } = Astro.props;
 ---
-<a href="#atas" class="brand" aria-label="Tanjung Emas Muar — kembali ke atas">
+<a href={href} class="brand" aria-label="Tanjung Emas Muar — kembali ke atas">
   <svg class="brand-mark" viewBox="0 0 180 180" role="img" aria-hidden="true">
     <rect width="180" height="180" rx="42" fill={light ? '#F3EFD9' : '#0E2E3B'} />
     <circle cx="90" cy="70" r="35" fill="#E8AC54" />

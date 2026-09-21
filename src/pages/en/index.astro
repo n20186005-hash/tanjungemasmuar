@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomePage from '../../components/HomePage.astro';
+import { home } from '../../content/home';
+import { images } from '../../data/market';
+import { localePath, type Locale } from '../../i18n/locales';
+import { attractionSchema, faqSchema } from '../../lib/seo';
+
+const locale: Locale = 'en';
+const c = home[locale];
+const site = Astro.site as URL;
+const pageUrl = new URL(localePath(locale), site).href;
+const ogImageUrl = new URL(images.hero, site).href;
+
+const jsonLd = [
+  attractionSchema({ url: pageUrl, image: ogImageUrl, description: c.meta.description }),
+  faqSchema(c.faq),
+];
+---
+<BaseLayout locale={locale} title={c.meta.title} description={c.meta.description} ogImage={images.hero} jsonLd={jsonLd}>
+  <HomePage locale={locale} />
+</BaseLayout>

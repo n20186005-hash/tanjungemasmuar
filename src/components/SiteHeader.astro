@@ -1,0 +1,44 @@
+---
+import Logo from './Logo.astro';
+import { locales, localeMeta, localePath, type Locale } from '../i18n/locales';
+import { ui } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  slug?: string;
+  variant?: 'overlay' | 'solid';
+}
+const { locale, slug = '', variant = 'overlay' } = Astro.props;
+const t = ui[locale];
+const home = localePath(locale);
+const prefix = slug ? home : '';
+const navItems = [
+  { label: t.nav.plan, href: `${prefix}#rancang` },
+  { label: t.nav.transport, href: `${prefix}#pengangkutan` },
+  { label: t.nav.food, href: `${prefix}#makan` },
+  { label: t.nav.nearby, href: `${prefix}#sekitar` },
+  { label: t.nav.topics, href: `${prefix}#topik` },
+  { label: t.nav.faq, href: `${prefix}#faq` },
+];
+---
+<header class:list={['site-header', variant === 'solid' && 'site-header--solid']}>
+  <div class="shell header-row">
+    <Logo light={variant === 'overlay'} href={home} />
+    <nav class="nav" aria-label="Navigasi utama">
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      <span class="lang-switch" role="group" aria-label={t.langSwitchAria}>
+        {locales.map((code) => (
+          <a
+            href={localePath(code, slug)}
+            hreflang={localeMeta[code].hreflang}
+            lang={localeMeta[code].htmlLang}
+            aria-current={code === locale ? 'true' : undefined}
+            class:list={['lang-switch__item', code === locale && 'is-active']}
+          >
+            {localeMeta[code].short}
+          </a>
+        ))}
+      </span>
+    </nav>
+  </div>
+</header>
