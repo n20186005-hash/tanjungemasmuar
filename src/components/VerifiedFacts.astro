@@ -1,0 +1,12 @@
+---
+import { checks } from '../data/checks';
+import { links } from '../data/market';
+import type { Locale } from '../i18n/locales';
+interface Props { locale: Locale; }
+const c=checks[Astro.props.locale];
+---
+<section class="verified-facts shell" aria-labelledby="checked-heading">
+  <p class="section-kicker">{c.checked}</p><h2 id="checked-heading">{c.heading}</h2>
+  <p>{c.hours}</p><p>{c.cruise}</p>
+  <div class="source-links"><a href={links.maps} target="_blank" rel="noopener noreferrer">Google Maps</a><a href={links.tourism} target="_blank" rel="noopener noreferrer">{c.tourism}</a><a href={links.cruise} target="_blank" rel="noopener noreferrer">{c.operator} · AZ Marine</a><a href="tel:+60136692263">013-6692263</a></div>
+</section>

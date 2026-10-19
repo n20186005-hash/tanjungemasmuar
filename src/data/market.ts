@@ -13,11 +13,11 @@ export const place = {
   addressLocality: 'Muar',
   addressRegion: 'Johor',
   addressCountry: 'MY',
-  latitude: 2.0467656479262546,
-  longitude: 102.55007006212864,
+  latitude: 2.0475785,
+  longitude: 102.5554697,
   ratingValue: '4.4',
   bestRating: '5',
-  ratingCount: 11000,
+  ratingCount: 11757,
   priceRange: 'Akses taman: percuma; aktiviti operator berasingan',
   openingHours: [
     { opens: '06:00', closes: '09:00' },
@@ -35,15 +35,16 @@ export const place = {
 } as const;
 
 export const links = {
-  maps:
-    'https://www.google.com/maps/search/?api=1&query=Tanjung%20Emas%20Muar%2C%20Taman%20Sri%20Tanjung%2C%2084000%20Muar%2C%20Johor%2C%20Malaysia',
+  maps: 'https://maps.app.goo.gl/q4ezhn4a2UGXTpQp8',
+  cruise: 'https://www.azmarinecentre.com/cruise.html',
+  tourism: 'https://visitjohor2026.my/listing/muar-river-cruise/',
   bmj: 'https://paj.com.my/bmj-route-schedules-muar/',
   official: 'https://www.mpmuar.gov.my/rakyat/destinasi-menarik/sukan-rekreasi',
   commons: 'https://commons.wikimedia.org/wiki/Category:Tanjung_Emas,_Muar',
 } as const;
 
 export const mapEmbedUrl =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.2728507495603!2d102.55007006212864!3d2.0467656479262546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d1b91834e77bd1%3A0xda0ddcf00e68d957!2sTanjung%20Emas%20Muar!5e0!3m2!1sms!2smy!4v1786539993997!5m2!1sms!2smy';
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.2728507495603!2d102.5554697!3d2.0475785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d1b91834e77bd1%3A0xda0ddcf00e68d957!2sTanjung%20Emas%20Muar!5e0!3m2!1sms!2smy!4v1786539993997!5m2!1sms!2smy';
 
 export const images = {
   hero: '/images/tanjung-emas-estuary.webp',

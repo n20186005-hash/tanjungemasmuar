@@ -56,25 +56,27 @@ export interface HomeContent {
 export const home: Record<Locale, HomeContent> = {
   ms: {
     meta: {
-      title: 'Taman Tanjung Emas Muar — Waktu, Jeti, Senja & Parkir',
-      description:
-        'Panduan lengkap Taman Tanjung Emas Muar: waktu terbaik, akses & parkir, jeti pelayaran Sungai Muar, makanan Muar, peta dan FAQ. Rancang lawatan anda sekarang.',
-    },
+  "title": "Tanjung Emas Muar: Waktu Taman, Jeti & Panduan Lawatan",
+  "description": "Rancang Tanjung Emas Muar dengan waktu taman, peta, parkir dan panduan jeti. Bezakan waktu taman daripada pelayaran sungai hujung minggu dan cuti."
+},
     hero: {
       pills: ['Bandar Maharani, Muar', 'Tepi Sungai · Rekreasi · Senja'],
-      title: 'Di hujung Sungai Muar, kota bergerak lebih perlahan.',
+      title: "Tanjung Emas Muar: taman, dataran dan jeti.",
       sub: 'Tanjung Emas ialah ruang rekreasi di muara Sungai Muar — tempat untuk berjalan di tepi air, melihat senja, bersantai bersama keluarga dan memulakan pelayaran sungai apabila perkhidmatan beroperasi.',
     },
     quick: [
       { label: 'Masuk', value: 'Taman awam · tiada tiket biasa' },
-      { label: 'Masa terbaik', value: 'Awal pagi / lewat petang' },
+      {
+  "label": "Waktu pada peta",
+  "value": "06:00–09:00 · 15:00–19:00"
+},
       { label: 'Cadangan tempoh', value: '1–2 jam santai' },
       { label: 'Lokasi', value: 'Taman Sri Tanjung, Muar' },
     ],
     about: {
       kicker: 'Kenapa Tanjung Emas',
       heading: 'Taman bandar dengan wajah Sungai Muar.',
-      lead: 'Majlis Perbandaran Muar menerangkan Taman Tanjung Emas sebagai taman rekreasi di muara Sungai Muar, dengan laluan tepi sungai, pemandangan air, padang golf 9 lubang dan perkhidmatan bot yang berlepas dari kawasan taman.',
+      lead: "Tanjung Emas ialah kawasan rekreasi di muara Sungai Muar. Majlis Perbandaran Muar menyenaraikan joging, berjalan, taman permainan dan berbasikal; jeti mempunyai perkhidmatan perjalanan sungai.",
       cards: [
         {
           title: 'Promenad di tepi muara',
@@ -103,7 +105,7 @@ export const home: Record<Locale, HomeContent> = {
       cards: [
         {
           title: 'Waktu & waktu terbaik',
-          body: 'Rujukan perjalanan semasa menunjukkan dua slot harian, **6:00–9:00 pagi** dan **3:00–7:00 petang**. Untuk pengalaman, pilih awal pagi atau lewat petang hingga senja.',
+          body: "Google Maps Tanjung Emas Muar menunjukkan 06:00–09:00 dan 15:00–19:00 setiap hari, disemak 19 Oktober 2026. Ini waktu penyenaraian taman, bukan jadual pelayaran atau semua vendor. Ikut papan tanda dan sahkan akses semasa.",
           callout:
             'Waktu ruang awam, aktiviti, jeti, gerai dan akses kenderaan boleh berbeza. Semak Google Maps / maklumat operator sebelum bertolak.',
         },
@@ -114,7 +116,7 @@ export const home: Record<Locale, HomeContent> = {
         },
         {
           title: 'Parkir',
-          body: 'Parkir awam tersedia di sekitar Taman Sri Tanjung dan kawasan berdekatan. Sumber direktori tempatan menunjukkan gabungan pilihan percuma, berbayar dan parkir tepi jalan.',
+          body: "Gunakan kawasan parkir yang dibenarkan dan ikut papan tanda setempat. Kadar, sekatan dan ruang yang tersedia belum disahkan; jangan anggap parkir percuma atau ruang persendirian boleh digunakan.",
           callout:
             'Pada hujung minggu / lewat petang, datang lebih awal dan ikut papan tanda. Jangan anggap kawasan bersebelahan sebagai parkir rasmi tanpa kebenaran.',
         },
@@ -136,7 +138,7 @@ export const home: Record<Locale, HomeContent> = {
         },
         {
           title: 'Bas ekspres ke Muar',
-          body: '**Terminal Bentayan Muar** ialah terminal bas ekspres utama bandar. Selepas tiba, sambung dengan teksi / e-hailing. Jadual bas antara bandar berubah mengikut operator, jadi tempah berdasarkan tarikh perjalanan sebenar.',
+          body: "Semak terminal ketibaan pada tiket bas ekspres anda. PAJ menyenaraikan Terminal Maharani pada laluan BMJ Muar; hentian terus di taman belum disahkan. Rancang teksi atau e-hailing untuk perjalanan akhir jika perlu.",
         },
         {
           title: 'Bas awam dalam daerah',
@@ -145,7 +147,7 @@ export const home: Record<Locale, HomeContent> = {
         },
         {
           title: 'Teksi & e-hailing',
-          body: 'Ini cara paling mudah untuk perjalanan akhir dari pusat Bandar Maharani atau Terminal Bentayan. Masukkan “Tanjung Emas Muar” sebagai destinasi dan sahkan titik turun berhampiran promenad / pintu masuk yang aktif.',
+          body: "Semak terminal ketibaan pada tiket bas ekspres anda. PAJ menyenaraikan Terminal Maharani pada laluan BMJ Muar; hentian terus di taman belum disahkan. Rancang teksi atau e-hailing untuk perjalanan akhir jika perlu.",
         },
         {
           title: 'Memandu sendiri',
@@ -191,35 +193,37 @@ export const home: Record<Locale, HomeContent> = {
       { q: 'Bilakah waktu terbaik untuk datang?', a: 'Awal pagi sesuai untuk berjalan dan berjoging, manakala lewat petang hingga matahari terbenam memberi suasana tepi sungai yang paling menarik. Hujung minggu biasanya lebih meriah dan lebih sesak.' },
       { q: 'Berapa lama patut diperuntukkan?', a: 'Sekitar satu hingga dua jam sesuai untuk berjalan santai, mengambil gambar dan menikmati tepi sungai. Tambah masa jika anda mahu menaiki pelayaran sungai atau makan di bandar Muar.' },
       { q: 'Ada tempat letak kereta?', a: 'Terdapat pilihan parkir awam di sekitar Taman Sri Tanjung. Jenis parkir, caj dan sekatan boleh berbeza mengikut lokasi, jadi ikut papan tanda tempatan dan datang lebih awal pada waktu puncak.' },
-      { q: 'Boleh datang dengan bas?', a: 'Boleh. Terminal Bentayan ialah terminal bas ekspres utama Muar. Dalam bandar, semak laluan terkini Bas Muafakat Johor (BMJ), kemudian gunakan teksi atau e-hailing untuk perjalanan akhir jika laluan tidak berhenti berhampiran taman.' },
+      { q: 'Boleh datang dengan bas?', a: "Semak terminal ketibaan pada tiket bas ekspres anda. PAJ menyenaraikan Terminal Maharani pada laluan BMJ Muar; hentian terus di taman belum disahkan. Rancang teksi atau e-hailing untuk perjalanan akhir jika perlu." },
       { q: 'Lapangan terbang mana yang paling praktikal?', a: 'Lapangan Terbang Antarabangsa Melaka lebih dekat secara geografi, tetapi kekerapan penerbangan boleh berubah. KLIA menawarkan rangkaian penerbangan jauh lebih luas; dari sana sambung melalui jalan raya atau bas ekspres ke Muar jika tersedia.' },
-      { q: 'Adakah pelayaran Sungai Muar beroperasi setiap hari?', a: 'Majlis Perbandaran Muar menyenaraikan perkhidmatan bot dari kawasan Tanjung Emas, tetapi jadual sebenar bergantung pada operator, hari dan keadaan operasi. Semak terus di jeti sebelum merancang perjalanan khusus untuk aktiviti ini.' },
+      { q: 'Adakah pelayaran Sungai Muar beroperasi setiap hari?', a: "Visit Johor 2026 menyenaraikan Muar River Cruise pada hujung minggu dan hari cuti. Sahkan tarikh, waktu berlepas, tempoh dan tambang dengan operator AZ Marine sebelum ke jeti; waktu taman bukan jadual bot." },
       { q: 'Apa makanan Muar yang sesuai dicuba selepas melawat?', a: 'Antara pilihan yang sinonim dengan lawatan ke Muar ialah mee bandung, otak-otak, asam pedas dan satay. Cari gerai atau kedai di sekitar Bandar Maharani dan Taman Sri Tanjung, kemudian semak waktu operasi semasa sebelum pergi.' },
-      { q: 'Di mana spot foto terbaik di Tanjung Emas?', a: 'Promenad merah di tepi sungai dan kawasan Sunset Point memberi latar muara yang paling konsisten. Waktu terbaik ialah kira-kira sejam sebelum matahari terbenam (sekitar 6:30–7:00 petang, bergantung musim). Lihat halaman tarikan Muar untuk laluan yang mesra fotografi.' },
+      { q: 'Di mana spot foto terbaik di Tanjung Emas?', a: "Pilih cahaya lewat petang semasa akses taman dibenarkan. Semak waktu matahari terbenam pada tarikh lawatan dan jangan andaikan akses selepas waktu penyenaraian taman." },
     ],
   },
 
   en: {
     meta: {
-      title: 'Tanjung Emas Muar — Riverside Park, Cruise Jetty & Sunset',
-      description:
-        'Plan Tanjung Emas Muar (Taman Tanjung Emas): best time to go, parking and transport, the Sungai Muar cruise jetty, Muar food, map and FAQ. Start planning now.',
-    },
+  "title": "Tanjung Emas Muar: Park Hours, Jetty & Visitor Guide",
+  "description": "Plan Tanjung Emas Muar with park hours, directions, parking and jetty guidance. Check weekend and holiday river cruises separately from the park listing."
+},
     hero: {
       pills: ['Bandar Maharani, Muar', 'Riverside · Recreation · Sunset'],
-      title: 'At the mouth of the Muar River, the town slows down.',
+      title: "Tanjung Emas Muar: park, square and jetty.",
       sub: 'Tanjung Emas is a public recreation space at the mouth of the Muar River — a place to walk along the water, watch the sunset, spend time with family and board a river cruise when services are running.',
     },
     quick: [
       { label: 'Entry', value: 'Public park · no regular ticket' },
-      { label: 'Best time', value: 'Early morning / late afternoon' },
+      {
+  "label": "Map-listed hours",
+  "value": "06:00–09:00 · 15:00–19:00"
+},
       { label: 'Suggested stay', value: '1–2 relaxed hours' },
       { label: 'Location', value: 'Taman Sri Tanjung, Muar' },
     ],
     about: {
       kicker: 'Why Tanjung Emas',
       heading: 'A town park with the face of the Muar River.',
-      lead: 'The Muar Municipal Council describes Tanjung Emas — also written Taman Tanjung Emas — as a recreation park at the mouth of the Muar River, with riverside paths, open water views, a 9-hole golf course and boat services departing from the park area.',
+      lead: "Tanjung Emas is a recreation area at the Muar River estuary. Muar Municipal Council lists jogging, walking, a playground and cycling, with river trips available at the jetty.",
       cards: [
         {
           title: 'A promenade along the estuary',
@@ -248,7 +252,7 @@ export const home: Record<Locale, HomeContent> = {
       cards: [
         {
           title: 'Hours & best time',
-          body: 'Current travel references list two daily slots, **6:00–9:00 am** and **3:00–7:00 pm**. For the experience itself, choose early morning or late afternoon into sunset.',
+          body: "The Tanjung Emas Muar Google Maps listing showed 06:00–09:00 and 15:00–19:00 daily when checked on 19 October 2026. These are park listing hours, not a boat timetable or every vendor’s hours. Follow on-site signs and confirm current access.",
           callout:
             'Hours for open space, activities, the jetty, stalls and vehicle access can differ. Check Google Maps or operator information before you leave.',
         },
@@ -259,7 +263,7 @@ export const home: Record<Locale, HomeContent> = {
         },
         {
           title: 'Parking',
-          body: 'Public parking is available around Taman Sri Tanjung and nearby areas. Local directory sources show a mix of free, paid and street parking.',
+          body: "Use designated parking and follow local signs. Current charges, restrictions and available spaces have not been confirmed; do not assume parking is free or that private land is available.",
           callout:
             'On weekends and late afternoons, arrive earlier and follow the signage. Do not assume an adjacent plot is official parking without confirmation.',
         },
@@ -281,7 +285,7 @@ export const home: Record<Locale, HomeContent> = {
         },
         {
           title: 'Express bus to Muar',
-          body: '**Terminal Bentayan Muar** is the town’s main express bus terminal. On arrival, continue by taxi or e-hailing. Intercity bus schedules change by operator, so book against your actual travel date.',
+          body: "Check the arrival terminal on your intercity bus ticket. PAJ lists Terminal Maharani on BMJ Muar routes; a direct park stop has not been confirmed. Plan a taxi or e-hailing connection if needed.",
         },
         {
           title: 'Public bus within the district',
@@ -290,7 +294,7 @@ export const home: Record<Locale, HomeContent> = {
         },
         {
           title: 'Taxi & e-hailing',
-          body: 'This is the easiest way to cover the last leg from central Bandar Maharani or Terminal Bentayan. Set “Tanjung Emas Muar” as the destination and confirm a drop-off near the active promenade entrance.',
+          body: "Check the arrival terminal on your intercity bus ticket. PAJ lists Terminal Maharani on BMJ Muar routes; a direct park stop has not been confirmed. Plan a taxi or e-hailing connection if needed.",
         },
         {
           title: 'Driving yourself',
@@ -336,35 +340,37 @@ export const home: Record<Locale, HomeContent> = {
       { q: 'When is the best time to come?', a: 'Early morning suits walking and jogging, while late afternoon into sunset gives the best riverside atmosphere. Weekends are usually livelier and busier.' },
       { q: 'How much time should I allow?', a: 'Around one to two hours works for a relaxed walk, photos and the riverbank. Add more if you want a river cruise or a meal in Muar town.' },
       { q: 'Is there parking?', a: 'Public parking options exist around Taman Sri Tanjung. Type of parking, charges and restrictions vary by spot, so follow local signage and arrive earlier at peak times.' },
-      { q: 'Can I arrive by bus?', a: 'Yes. Terminal Bentayan is Muar’s main express bus terminal. Within town, check the latest Bas Muafakat Johor (BMJ) routes, then use a taxi or e-hailing for the final leg if no stop is near the park.' },
+      { q: 'Can I arrive by bus?', a: "Check the arrival terminal on your intercity bus ticket. PAJ lists Terminal Maharani on BMJ Muar routes; a direct park stop has not been confirmed. Plan a taxi or e-hailing connection if needed." },
       { q: 'Which airport is most practical?', a: 'Melaka International Airport is geographically closer, but flight frequency can change. KLIA offers a far wider network; continue from there by road or express bus to Muar where available.' },
-      { q: 'Does the Sungai Muar cruise run every day?', a: 'The Muar Municipal Council lists boat services from the Tanjung Emas area, but the actual schedule depends on the operator, day and operating conditions. Check at the jetty before planning a trip around it.' },
+      { q: 'Does the Sungai Muar cruise run every day?', a: "Visit Johor 2026 lists Muar River Cruise for weekends and holidays. Confirm your date, departure time, duration and fare with operator AZ Marine before going to the jetty; park hours are not a boat timetable." },
       { q: 'What Muar food should I try after visiting?', a: 'Standouts tied to a Muar trip include mee bandung, otak-otak, asam pedas and satay. Look for stalls or shops around Bandar Maharani and Taman Sri Tanjung, and check current opening hours first.' },
-      { q: 'Where are the best photo spots at Tanjung Emas?', a: 'The red riverside promenade and the Sunset Point area give the most consistent estuary backdrop. The best window is roughly the hour before sunset (around 6:30–7:00 pm depending on season). See the Muar attractions page for a photo-friendly route.' },
+      { q: 'Where are the best photo spots at Tanjung Emas?', a: "Choose late-afternoon light while park access is permitted. Check sunset for your visit date and do not assume access continues after the listed park hours." },
     ],
   },
 
   zh: {
     meta: {
-      title: '麻坡黄金埠 Tanjung Emas｜河岸公园、游船码头与日落攻略',
-      description:
-        '麻坡 Tanjung Emas（Taman Tanjung Emas）完整指南：最佳时段、交通与停车、麻坡河游船码头、河畔美食、地图与常见问题，出发前先读这一篇。',
-    },
+  "title": "麻坡黄金丹绒公园 Tanjung Emas｜开放时间、码头与游船指南",
+  "description": "规划麻坡黄金丹绒公园行程：核对地图开放时段、交通、停车与码头。麻坡河游船的周末及假日营业安排需另向营运方确认。"
+},
     hero: {
       pills: ['柔佛麻坡 · 皇城', '河岸 · 休闲 · 日落'],
-      title: '在麻坡河的出海口，城市的步调慢了下来。',
+      title: "麻坡黄金丹绒公园：河畔、广场与码头",
       sub: 'Tanjung Emas 是麻坡河出海口的公共休闲空间：沿河散步、看日落、亲子同游，也可在船班营运时从这里出发游河。',
     },
     quick: [
       { label: '入场', value: '公共公园 · 一般免票' },
-      { label: '最佳时段', value: '清晨 / 傍晚' },
+      {
+  "label": "地图所列时段",
+  "value": "06:00–09:00 · 15:00–19:00"
+},
       { label: '建议停留', value: '悠闲 1–2 小时' },
       { label: '位置', value: 'Taman Sri Tanjung, 麻坡' },
     ],
     about: {
       kicker: '为什么来 Tanjung Emas',
       heading: '一座面向麻坡河的城市公园。',
-      lead: '麻坡市议会（Majlis Perbandaran Muar）将 Tanjung Emas（也常写作 Taman Tanjung Emas）描述为麻坡河出海口的休闲公园：有沿河步道、开阔河景、9 洞高尔夫球场，以及从园区出发的船班服务。',
+      lead: "黄金丹绒公园位于麻坡河出海口。麻坡市议会介绍了慢跑、散步、儿童游乐场及骑行设施，码头另有河上游览活动。",
       cards: [
         {
           title: '出海口旁的步道',
@@ -393,7 +399,7 @@ export const home: Record<Locale, HomeContent> = {
       cards: [
         {
           title: '时间与最佳时段',
-          body: '目前旅游资料列出两个时段：**上午 6:00–9:00** 与 **下午 3:00–7:00**。就体验而言，清晨或傍晚到日落前后最理想。',
+          body: "2026年10月19日核对的 Tanjung Emas Muar 地图条目显示，每日06:00–09:00及15:00–19:00开放。这是公园条目的时间，并非游船或所有摊位的营业时间；实际通行请依现场告示确认。",
           callout: '开放空间、活动、码头、摊位与车辆进出时间可能各不相同，出发前请查 Google 地图或营运单位信息。',
         },
         {
@@ -403,7 +409,7 @@ export const home: Record<Locale, HomeContent> = {
         },
         {
           title: '停车',
-          body: 'Taman Sri Tanjung 一带及邻近区域有公共停车选择；本地名录资料显示免费、收费与路边停车并存。',
+          body: "请使用获准停车的区域并遵守现场标志。当前收费、限制与剩余车位尚未核实，不应默认免费，也不要擅用私人空地。",
           callout: '周末与傍晚请提早抵达并遵守指示牌；未经确认，不要把邻近空地当作正式停车场。',
         },
         {
@@ -424,7 +430,7 @@ export const home: Record<Locale, HomeContent> = {
         },
         {
           title: '长途巴士到麻坡',
-          body: '**Terminal Bentayan Muar** 是麻坡主要的长途巴士总站，抵达后转乘出租车或网约车。城际巴士班次随营运商调整，请按实际出行日期订票。',
+          body: "乘坐长途巴士时，请以车票上的抵达站为准。PAJ列出的麻坡BMJ路线包含Terminal Maharani；尚未确认有公园直达站，必要时安排出租车或网约车接驳。",
         },
         {
           title: '市区公共巴士',
@@ -433,7 +439,7 @@ export const home: Record<Locale, HomeContent> = {
         },
         {
           title: '出租车与网约车',
-          body: '从皇城市区或 Terminal Bentayan 出发，这是最后一段路程最省事的方式。目的地设 “Tanjung Emas Muar”，并与司机确认在靠近步道的入口下车。',
+          body: "乘坐长途巴士时，请以车票上的抵达站为准。PAJ列出的麻坡BMJ路线包含Terminal Maharani；尚未确认有公园直达站，必要时安排出租车或网约车接驳。",
         },
         {
           title: '自驾',
@@ -479,11 +485,11 @@ export const home: Record<Locale, HomeContent> = {
       { q: '什么时候最适合来？', a: '清晨适合散步与慢跑；傍晚到日落则最有河岸氛围。周末通常比较热闹，人也较多。' },
       { q: '建议停留多久？', a: '约 1–2 小时足以散步、拍照、享受河岸。若想游船或到市区用餐，可再延长。' },
       { q: '有停车的地方吗？', a: 'Taman Sri Tanjung 一带有公共停车选择，但停车类型、收费与限制因地点而异，请遵循现场指示牌，并在高峰时段提早抵达。' },
-      { q: '可以搭巴士来吗？', a: '可以。Terminal Bentayan 是麻坡主要的长途巴士总站；市区内请先查 Bas Muafakat Johor（BMJ）最新路线，若站牌不在公园附近，最后一段改用出租车或网约车。' },
+      { q: '可以搭巴士来吗？', a: "乘坐长途巴士时，请以车票上的抵达站为准。PAJ列出的麻坡BMJ路线包含Terminal Maharani；尚未确认有公园直达站，必要时安排出租车或网约车接驳。" },
       { q: '哪个机场比较方便？', a: '马六甲国际机场距离较近，但航班频率可能变动；吉隆坡国际机场航线网络更广，抵达后再走公路或搭长途巴士前往麻坡。' },
-      { q: '麻坡河游船每天都有吗？', a: '麻坡市议会列出从 Tanjung Emas 一带出发的船班，但实际班次取决于营运商、日期与营运状况。若行程以此为主，请先到码头确认。' },
+      { q: '麻坡河游船每天都有吗？', a: "Visit Johor 2026将麻坡河游船列为周末及假日营业。前往码头前，请向AZ Marine确认出发日期、班次、航程与票价；公园开放时间不能当作船班时刻表。" },
       { q: '参观后适合吃什么？', a: '与麻坡之行最相连的选择包括 mee bandung、otak-otak、asam pedas 与沙爹。可在皇城与 Taman Sri Tanjung 一带寻找摊位或店家，出发前先确认营业时间。' },
-      { q: 'Tanjung Emas 哪里最适合拍照？', a: '沿河的红色步道与日落观景点（Sunset Point）最能拍到出海口背景。最佳时机约为日落前一小时（傍晚 6:30–7:00 左右，视季节而定）。可参见麻坡景点页的拍照路线。' },
+      { q: 'Tanjung Emas 哪里最适合拍照？', a: "在公园允许通行的时间内选择傍晚光线，并查询出行当天的日落时间；不要默认公园所列时段结束后仍能进入。" },
     ],
   },
 };

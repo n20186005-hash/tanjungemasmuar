@@ -1,5 +1,2 @@
-# Kanonikal domain: www -> apex dan http -> https (301 kekal).
-# Cloudflare "Always Use HTTPS" kekal sebagai lapisan utama; ini sandaran di peringkat aset.
-http://tanjungemasmuar.com/*            https://tanjungemasmuar.com/:splat      301
-http://www.tanjungemasmuar.com/*        https://tanjungemasmuar.com/:splat      301
-https://www.tanjungemasmuar.com/*       https://tanjungemasmuar.com/:splat      301
+# Domain and protocol canonicalization is handled by src/worker.js.
+# Worker asset redirect sources must be relative paths.

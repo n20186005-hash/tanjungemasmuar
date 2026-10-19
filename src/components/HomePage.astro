@@ -1,4 +1,6 @@
 ---
+import VerifiedFacts from './VerifiedFacts.astro';
+import { checks } from '../data/checks';
 import { foodSpots, images, links, mapEmbedUrl, photoCredit, place } from '../data/market';
 import { home } from '../content/home';
 import { topicIds, topicSlug, topics, topicImage } from '../content/topics';
@@ -89,6 +91,9 @@ const credit = (caption: string) => `${caption} · ${t.photoPrefix} ${photoCredi
     ))}
   </div>
 </section>
+
+<nav class="shell topic-shortcuts" aria-label={checks[locale].quickTitle}>{topicCards.map(card => <a href={card.href}>{card.title}</a>)}</nav>
+<VerifiedFacts locale={locale} />
 
 <section class="section" id="tentang">
   <div class="shell story-grid">

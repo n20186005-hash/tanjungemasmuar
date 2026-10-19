@@ -26,6 +26,7 @@ const navItems = [
     <Logo light={variant === 'overlay'} href={home} />
     <nav class="nav" aria-label="Navigasi utama">
       {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
       <span class="lang-switch" role="group" aria-label={t.langSwitchAria}>
         {locales.map((code) => (
           <a
@@ -39,6 +40,5 @@ const navItems = [
           </a>
         ))}
       </span>
-    </nav>
   </div>
 </header>

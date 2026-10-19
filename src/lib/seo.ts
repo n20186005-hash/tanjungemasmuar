@@ -112,12 +112,6 @@ export function attractionSchema({ url, image, description, name }: AttractionOp
       opens: slot.opens,
       closes: slot.closes,
     })),
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: place.ratingValue,
-      bestRating: place.bestRating,
-      ratingCount: place.ratingCount,
-    },
     isAccessibleForFree: true,
   };
 }

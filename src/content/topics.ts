@@ -41,172 +41,236 @@ export interface TopicContent {
 export const topics: Record<TopicId, Record<Locale, TopicContent>> = {
   jeti: {
     ms: {
-      meta: {
-        title: 'Jeti Tanjung Emas Muar — Pelayaran Sungai Muar, Waktu & Caj',
-        description:
-          'Panduan jeti Tanjung Emas Muar: lokasi jeti, waktu & jadual pelayaran Sungai Muar, anggaran caj, cara ke sana dan tip sebelum menaiki bot.',
-      },
-      card: { title: 'Jeti & pelayaran Sungai Muar', text: 'Lokasi jeti, jadual, anggaran caj dan tip sebelum menaiki bot.' },
-      kicker: 'Jeti & pelayaran sungai',
-      h1: 'Jeti Tanjung Emas: pintu masuk Muar dari sungai.',
-      lead: 'Majlis Perbandaran Muar menyenaraikan perkhidmatan bot yang berlepas dari kawasan Tanjung Emas. Jadual, laluan dan caj bergantung pada operator serta keadaan operasi — semak terus di jeti sebelum merancang.',
-      facts: [
-        { label: 'Lokasi jeti', value: 'Kawasan Tanjung Emas, Taman Sri Tanjung' },
-        { label: 'Waktu rujukan', value: 'Sekitar 3:00–7:00 petang' },
-        { label: 'Anggaran tempoh', value: '30–60 minit' },
-        { label: 'Caj', value: 'Bergantung operator' },
-      ],
-      blocks: [
-        {
-          heading: 'Di mana jeti Tanjung Emas berada',
-          paragraphs: [
-            'Jeti terletak dalam kawasan rekreasi Tanjung Emas, tidak jauh daripada promenad tepi sungai yang menjadi laluan utama pengunjung.',
-            'Untuk navigasi, gunakan “**Tanjung Emas Muar / Taman Sri Tanjung, 84000 Muar, Johor**”. Dari situ ikut papan tanda dan laluan pejalan kaki ke arah air.',
-          ],
-          bullets: [
-            'Titik navigasi: Tanjung Emas Muar, Taman Sri Tanjung, 84000 Muar, Johor.',
-            'Jeti berada dalam kawasan taman, berhampiran promenad dan Sunset Point.',
-            'Parkir awam tersedia di sekitar Taman Sri Tanjung; datang lebih awal pada hujung minggu.',
-          ],
-        },
-        {
-          heading: 'Jadual, tempoh dan caj',
-          paragraphs: [
-            'Rujukan perjalanan semasa menunjukkan slot harian sekitar **3:00–7:00 petang**, tetapi operasi sebenar bergantung pada operator, hari, cuaca dan keadaan air.',
-            'Kebanyakan perjalanan rekreasi di sungai bandar mengambil masa sekitar **30–60 minit**. Caj berbeza mengikut pakej, saiz bot dan musim — tiada satu harga rasmi yang kekal.',
-          ],
-          callout:
-            'Jangan bergantung pada harga atau jadual lama daripada ulasan dalam talian. Sahkan terus di kaunter jeti atau dengan operator pada hari lawatan.',
-        },
-        {
-          heading: 'Tip sebelum menaiki bot',
-          bullets: [
-            'Pakai jaket keselamatan yang disediakan dan ikut arahan krew.',
-            'Elakkan waktu hujan lebat, angin kencang atau air sungai bergelora.',
-            'Slot lewat petang memberi cahaya senja terbaik, tetapi juga lebih ramai.',
-            'Bawa air minuman, pelindung matahari dan beg kalis air untuk telefon atau kamera.',
-            'Jika datang berkumpulan, hubungi operator lebih awal untuk kebarangkalian mendapat slot.',
-          ],
-        },
-      ],
-      faqs: [
-        { q: 'Adakah pelayaran Sungai Muar beroperasi setiap hari?', a: 'Majlis Perbandaran Muar menyenaraikan perkhidmatan bot dari kawasan Tanjung Emas, tetapi jadual sebenar bergantung pada operator, hari dan keadaan operasi. Semak terus di jeti sebelum merancang perjalanan khusus untuk aktiviti ini.' },
-        { q: 'Berapa harga tiket pelayaran?', a: 'Caj bergantung pada operator, tempoh perjalanan dan saiz bot; tiada satu harga rasmi yang kekal. Semak terus di kaunter jeti atau dengan operator pada hari lawatan.' },
-        { q: 'Berapa lama perjalanan bot?', a: 'Kebanyakan perjalanan rekreasi di sungai bandar mengambil masa sekitar 30–60 minit, tetapi tempoh sebenar bergantung pada pakej operator. Sahkan sebelum membayar.' },
-        { q: 'Perlu tempah awal?', a: 'Untuk kumpulan besar atau hujung minggu, tempahan awal membantu. Untuk perjalanan individu, kebiasaannya boleh terus ke jeti, tetapi ketersediaan tidak dijamin.' },
-      ],
+  "meta": {
+    "title": "Jeti Tanjung Emas Muar: Waktu Pelayaran & Panduan",
+    "description": "Panduan Muar River Cruise: operasi hujung minggu dan cuti, alamat Jalan Tanjung 4, hubungan operator dan perkara yang perlu disahkan sebelum menaiki bot."
+  },
+  "card": {
+    "title": "Jeti Tanjung Emas & Muar River Cruise",
+    "text": "Panduan Muar River Cruise: operasi hujung minggu dan cuti, alamat Jalan Tanjung 4, hubungan operator dan perkara yang perlu disahkan sebelum menaiki bot."
+  },
+  "kicker": "Operator pelayaran",
+  "h1": "Jeti Tanjung Emas & Muar River Cruise",
+  "lead": "Visit Johor 2026 menyenaraikan Muar River Cruise pada hujung minggu dan hari cuti. Sahkan tarikh, waktu berlepas, tempoh dan tambang dengan operator AZ Marine sebelum ke jeti; waktu taman bukan jadual bot.",
+  "facts": [
+    {
+      "label": "Alamat operator",
+      "value": "Jalan Tanjung 4, Taman Emas, 84000 Muar"
     },
+    {
+      "label": "Hari operasi",
+      "value": "Hujung minggu & cuti"
+    },
+    {
+      "label": "Tempoh & tambang",
+      "value": "Sahkan dengan operator"
+    },
+    {
+      "label": "Operator pelayaran",
+      "value": "AZ Marine · 013-6692263"
+    }
+  ],
+  "blocks": [
+    {
+      "heading": "Lokasi dan tempat menaiki bot",
+      "paragraphs": [
+        "AZ Marine menerbitkan alamat Jalan Tanjung 4, Taman Emas. Hubungi operator untuk titik berkumpul dan jeti berlepas sebenar sebelum bergerak. Pautan peta taman dalam panduan ini merujuk taman, bukan jaminan lokasi menaiki bot."
+      ]
+    },
+    {
+      "heading": "Tempahan dan perkara untuk disahkan",
+      "paragraphs": [
+        "Tambang, tempoh dan jadual terperinci semasa belum dapat disahkan pada 19 Oktober 2026. Hubungi AZ Marine melalui pautan rasmi atau 013-6692263."
+      ],
+      "bullets": [
+        "Sahkan tarikh operasi, masa berkumpul dan pelayaran terakhir.",
+        "Tanya tambang dewasa/kanak-kanak, tempoh perjalanan dan kaedah bayaran.",
+        "Sahkan titik menaiki bot, akses kerusi roda dan polisi cuaca."
+      ]
+    },
+    {
+      "heading": "Waktu pada peta",
+      "paragraphs": [
+        "Google Maps Tanjung Emas Muar menunjukkan 06:00–09:00 dan 15:00–19:00 setiap hari, disemak 19 Oktober 2026. Ini waktu penyenaraian taman, bukan jadual pelayaran atau semua vendor. Ikut papan tanda dan sahkan akses semasa.",
+        "Tidak. Penyenaraian peta taman mempunyai dua slot harian; jadual pelayaran ditentukan operator dan perlu disahkan berasingan."
+      ]
+    },
+    {
+      "heading": "Sebelum menaiki bot",
+      "paragraphs": [
+        "Ikut arahan kru dan gunakan jaket keselamatan yang sesuai. Jangan biarkan kanak-kanak berdiri di tepi jeti tanpa pengawasan. Rancang aktiviti taman sebagai pilihan jika pelayaran dibatalkan."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Adakah pelayaran beroperasi setiap hari?",
+      "a": "Visit Johor 2026 menyenaraikan Muar River Cruise pada hujung minggu dan hari cuti. Sahkan tarikh, waktu berlepas, tempoh dan tambang dengan operator AZ Marine sebelum ke jeti; waktu taman bukan jadual bot."
+    },
+    {
+      "q": "Berapakah tambang semasa?",
+      "a": "Tambang, tempoh dan jadual terperinci semasa belum dapat disahkan pada 19 Oktober 2026. Hubungi AZ Marine melalui pautan rasmi atau 013-6692263."
+    },
+    {
+      "q": "Adakah waktu taman sama dengan waktu bot?",
+      "a": "Tidak. Penyenaraian peta taman mempunyai dua slot harian; jadual pelayaran ditentukan operator dan perlu disahkan berasingan."
+    }
+  ]
+},
     en: {
-      meta: {
-        title: 'Tanjung Emas Jetty Muar — Sungai Muar Cruise, Hours & Fares',
-        description:
-          'Guide to the Tanjung Emas jetty in Muar: jetty location, Sungai Muar cruise hours and schedule, estimated fares, how to get there and tips before boarding.',
-      },
-      card: { title: 'Jetty & Sungai Muar cruise', text: 'Jetty location, schedule, estimated fare and tips before you board.' },
-      kicker: 'Jetty & river cruise',
-      h1: 'The Tanjung Emas jetty: Muar from the water.',
-      lead: 'The Muar Municipal Council lists boat services departing from the Tanjung Emas area. Schedule, route and fare depend on the operator and on operating conditions — check at the jetty before you plan around it.',
-      facts: [
-        { label: 'Jetty location', value: 'Tanjung Emas area, Taman Sri Tanjung' },
-        { label: 'Reference hours', value: 'Around 3:00–7:00 pm' },
-        { label: 'Typical duration', value: '30–60 minutes' },
-        { label: 'Fare', value: 'Depends on operator' },
-      ],
-      blocks: [
-        {
-          heading: 'Where the Tanjung Emas jetty is',
-          paragraphs: [
-            'The jetty sits inside the Tanjung Emas recreation area, a short distance from the riverside promenade that most visitors follow.',
-            'For navigation, use “**Tanjung Emas Muar / Taman Sri Tanjung, 84000 Muar, Johor**”. From there follow the signage and footpaths towards the water.',
-          ],
-          bullets: [
-            'Navigation point: Tanjung Emas Muar, Taman Sri Tanjung, 84000 Muar, Johor.',
-            'The jetty is inside the park, near the promenade and Sunset Point.',
-            'Public parking is available around Taman Sri Tanjung; arrive earlier at weekends.',
-          ],
-        },
-        {
-          heading: 'Schedule, duration and fare',
-          paragraphs: [
-            'Current travel references show a daily slot around **3:00–7:00 pm**, but actual operation depends on the operator, day, weather and water conditions.',
-            'Most recreational trips on a town river last about **30–60 minutes**. Fares vary by package, boat size and season — there is no fixed official price.',
-          ],
-          callout:
-            'Do not rely on old prices or schedules from online reviews. Confirm directly at the jetty counter or with the operator on the day.',
-        },
-        {
-          heading: 'Tips before boarding',
-          bullets: [
-            'Wear the life jacket provided and follow the crew’s instructions.',
-            'Avoid heavy rain, strong wind or rough river conditions.',
-            'The late afternoon slot gives the best sunset light, but also more people.',
-            'Bring drinking water, sun protection and a dry bag for phone or camera.',
-            'For groups, contact the operator ahead to improve your chances of a slot.',
-          ],
-        },
-      ],
-      faqs: [
-        { q: 'Does the Sungai Muar cruise run every day?', a: 'The Muar Municipal Council lists boat services from the Tanjung Emas area, but the actual schedule depends on the operator, day and operating conditions. Check at the jetty before planning a trip around it.' },
-        { q: 'How much is a cruise ticket?', a: 'Fares depend on the operator, trip duration and boat size; there is no fixed official price. Check at the jetty counter or with the operator on the day.' },
-        { q: 'How long is the boat trip?', a: 'Most recreational trips on a town river last around 30–60 minutes, but the actual duration depends on the operator’s package. Confirm before paying.' },
-        { q: 'Do I need to book in advance?', a: 'For large groups or weekends, booking ahead helps. For individual trips you can usually go straight to the jetty, but availability is not guaranteed.' },
-      ],
+  "meta": {
+    "title": "Jeti Tanjung Emas & Muar River Cruise Guide",
+    "description": "Plan Muar River Cruise with weekend and holiday operation, the Jalan Tanjung 4 operator address, contact details and checks before boarding."
+  },
+  "card": {
+    "title": "Jeti Tanjung Emas & Muar River Cruise",
+    "text": "Plan Muar River Cruise with weekend and holiday operation, the Jalan Tanjung 4 operator address, contact details and checks before boarding."
+  },
+  "kicker": "Cruise operator",
+  "h1": "Jeti Tanjung Emas & Muar River Cruise",
+  "lead": "Visit Johor 2026 lists Muar River Cruise for weekends and holidays. Confirm your date, departure time, duration and fare with operator AZ Marine before going to the jetty; park hours are not a boat timetable.",
+  "facts": [
+    {
+      "label": "Operator address",
+      "value": "Jalan Tanjung 4, Taman Emas, 84000 Muar"
     },
+    {
+      "label": "Operating days",
+      "value": "Weekends & holidays"
+    },
+    {
+      "label": "Duration & fare",
+      "value": "Confirm with operator"
+    },
+    {
+      "label": "Cruise operator",
+      "value": "AZ Marine · 013-6692263"
+    }
+  ],
+  "blocks": [
+    {
+      "heading": "Location and boarding point",
+      "paragraphs": [
+        "AZ Marine publishes its address as Jalan Tanjung 4, Taman Emas. Confirm the actual meeting point and departure jetty with the operator before travelling. The park map link in this guide identifies the park, not a guaranteed boarding point."
+      ]
+    },
+    {
+      "heading": "Bookings and checks before travelling",
+      "paragraphs": [
+        "Current fares, trip duration and a detailed timetable were not confirmed on 19 October 2026. Contact AZ Marine through its official link or 013-6692263."
+      ],
+      "bullets": [
+        "Confirm the operating date, meeting time and last sailing.",
+        "Ask for adult/child fares, trip duration and payment methods.",
+        "Check the boarding point, wheelchair access and weather policy."
+      ]
+    },
+    {
+      "heading": "Map-listed hours",
+      "paragraphs": [
+        "The Tanjung Emas Muar Google Maps listing showed 06:00–09:00 and 15:00–19:00 daily when checked on 19 October 2026. These are park listing hours, not a boat timetable or every vendor’s hours. Follow on-site signs and confirm current access.",
+        "No. The park map listing has two daily time slots; sailings follow an operator schedule that must be confirmed separately."
+      ]
+    },
+    {
+      "heading": "Before boarding",
+      "paragraphs": [
+        "Follow crew instructions and wear an appropriately fitted life jacket. Supervise children at the jetty edge. Keep a park visit as an alternative if the sailing is cancelled."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does the river cruise run every day?",
+      "a": "Visit Johor 2026 lists Muar River Cruise for weekends and holidays. Confirm your date, departure time, duration and fare with operator AZ Marine before going to the jetty; park hours are not a boat timetable."
+    },
+    {
+      "q": "What is the current fare?",
+      "a": "Current fares, trip duration and a detailed timetable were not confirmed on 19 October 2026. Contact AZ Marine through its official link or 013-6692263."
+    },
+    {
+      "q": "Are park hours the same as boat times?",
+      "a": "No. The park map listing has two daily time slots; sailings follow an operator schedule that must be confirmed separately."
+    }
+  ]
+},
     zh: {
-      meta: {
-        title: '麻坡 Tanjung Emas 码头｜麻坡河游船时间、票价与交通',
-        description:
-          '麻坡 Tanjung Emas 码头指南：码头位置、麻坡河游船时间与班次、票价参考、前往方式与上船前的实用建议。',
-      },
-      card: { title: '码头与麻坡河游船', text: '码头位置、班次、票价参考与上船前注意事项。' },
-      kicker: '码头与游船',
-      h1: 'Tanjung Emas 码头：从河上看麻坡。',
-      lead: '麻坡市议会列出从 Tanjung Emas 一带出发的船班服务，但班次、航线与收费取决于营运单位与当时状况——安排行程前请先到码头确认。',
-      facts: [
-        { label: '码头位置', value: 'Tanjung Emas 园区内，Taman Sri Tanjung' },
-        { label: '参考时段', value: '约下午 3:00–7:00' },
-        { label: '航程约', value: '30–60 分钟' },
-        { label: '票价', value: '视营运单位而定' },
-      ],
-      blocks: [
-        {
-          heading: 'Tanjung Emas 码头在哪里',
-          paragraphs: [
-            '码头位于 Tanjung Emas 休闲园区内，距离游客主要动线的沿河步道不远。',
-            '导航请设 “**Tanjung Emas Muar / Taman Sri Tanjung, 84000 Muar, Johor**”，抵达后依指示牌与步道往水岸方向走。',
-          ],
-          bullets: [
-            '导航点：Tanjung Emas Muar, Taman Sri Tanjung, 84000 Muar, Johor。',
-            '码头在园区内，靠近沿河步道与日落观景点（Sunset Point）。',
-            'Taman Sri Tanjung 一带有公共停车；周末请提早抵达。',
-          ],
-        },
-        {
-          heading: '班次、航程与票价',
-          paragraphs: [
-            '目前旅游资料显示的每日时段约为 **下午 3:00–7:00**，但实际营运取决于营运单位、日期、天气与水位状况。',
-            '市区河段的休闲航程多为 **30–60 分钟**。票价随套票内容、船型与季节不同，并没有固定不变的官方价格。',
-          ],
-          callout: '不要依赖网络评论里的旧票价或旧班次。请于当日直接向码头柜台或营运单位确认。',
-        },
-        {
-          heading: '上船前的小提醒',
-          bullets: [
-            '穿戴现场提供的救生衣，并听从船员指示。',
-            '避开大雨、强风或河水湍急的时段。',
-            '傍晚班次光线最好，但人潮也较多。',
-            '自备饮用水、防晒用品，以及手机／相机的防水袋。',
-            '团体前往建议事先联络营运单位，较容易安排到班次。',
-          ],
-        },
-      ],
-      faqs: [
-        { q: '麻坡河游船每天都开吗？', a: '麻坡市议会列出从 Tanjung Emas 一带出发的船班，但实际班次取决于营运单位、日期与营运状况。若行程以此为主，请先到码头确认。' },
-        { q: '游船票价多少？', a: '票价取决于营运单位、航程长度与船型，没有固定不变的官方价格。请于当日向码头柜台或营运单位查询。' },
-        { q: '航程多久？', a: '市区河段的休闲航程通常约 30–60 分钟，实际时间依营运单位套票而定，付款前请先确认。' },
-        { q: '需要事先预约吗？', a: '团体或周末前往建议先预约；散客通常可直接到码头，但不保证一定有班次。' },
-      ],
+  "meta": {
+    "title": "黄金丹绒码头与麻坡河游船指南",
+    "description": "了解麻坡河游船周末与假日营业安排、Jalan Tanjung 4营运方地址、联系方式及登船前需核对的票价与班次。"
+  },
+  "card": {
+    "title": "黄金丹绒码头与麻坡河游船指南",
+    "text": "了解麻坡河游船周末与假日营业安排、Jalan Tanjung 4营运方地址、联系方式及登船前需核对的票价与班次。"
+  },
+  "kicker": "游船营运方",
+  "h1": "黄金丹绒码头与麻坡河游船指南",
+  "lead": "Visit Johor 2026将麻坡河游船列为周末及假日营业。前往码头前，请向AZ Marine确认出发日期、班次、航程与票价；公园开放时间不能当作船班时刻表。",
+  "facts": [
+    {
+      "label": "营运方地址",
+      "value": "Jalan Tanjung 4, Taman Emas, 84000 Muar"
     },
+    {
+      "label": "营业日",
+      "value": "周末及假日"
+    },
+    {
+      "label": "航程与票价",
+      "value": "向营运方确认"
+    },
+    {
+      "label": "游船营运方",
+      "value": "AZ Marine · 013-6692263"
+    }
+  ],
+  "blocks": [
+    {
+      "heading": "位置与实际登船点",
+      "paragraphs": [
+        "AZ Marine公布的地址为Jalan Tanjung 4、Taman Emas。出发前请确认当天集合点与实际出船码头。本指南的公园地图链接用于定位公园，不代表已核实的登船点。"
+      ]
+    },
+    {
+      "heading": "预约前要核对什么",
+      "paragraphs": [
+        "截至2026年10月19日，未能核实当前票价、航程与详细班表。请通过官网或013-6692263联系AZ Marine。"
+      ],
+      "bullets": [
+        "确认营业日期、集合时间与最后一班船。",
+        "询问成人及儿童票价、航程长度与付款方式。",
+        "确认登船点、轮椅通行条件及天气取消安排。"
+      ]
+    },
+    {
+      "heading": "地图所列时段",
+      "paragraphs": [
+        "2026年10月19日核对的 Tanjung Emas Muar 地图条目显示，每日06:00–09:00及15:00–19:00开放。这是公园条目的时间，并非游船或所有摊位的营业时间；实际通行请依现场告示确认。",
+        "不是。公园地图条目列有每日两个时段，游船须按营运方另行确认的班次安排。"
+      ]
+    },
+    {
+      "heading": "登船准备",
+      "paragraphs": [
+        "遵从船员指示，穿戴合身救生衣，并看护码头边的儿童。若船班取消，可改为公园散步，避免把未确认的游船安排作为行程唯一活动。"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "麻坡河游船每天都有吗？",
+      "a": "Visit Johor 2026将麻坡河游船列为周末及假日营业。前往码头前，请向AZ Marine确认出发日期、班次、航程与票价；公园开放时间不能当作船班时刻表。"
+    },
+    {
+      "q": "现在船票多少钱？",
+      "a": "截至2026年10月19日，未能核实当前票价、航程与详细班表。请通过官网或013-6692263联系AZ Marine。"
+    },
+    {
+      "q": "公园开放时间就是游船时间吗？",
+      "a": "不是。公园地图条目列有每日两个时段，游船须按营运方另行确认的班次安排。"
+    }
+  ]
+},
   },
 
   dataran: {
@@ -231,7 +295,7 @@ export const topics: Record<TopicId, Record<Locale, TopicContent>> = {
           heading: 'Apa yang ada di dataran',
           paragraphs: [
             'Dataran berfungsi sebagai ruang terbuka yang menghubungkan promenad tepi sungai dengan bahagian lain taman. Di sinilah orang berkumpul sebelum berjalan ke arah air atau selepas selesai bersenam.',
-            'Kawasan rekreasi Tanjung Emas juga disenaraikan dengan laluan pejalan kaki, padang golf 9 lubang dan perkhidmatan bot, menjadikan dataran titik tengah yang mudah untuk mula atau mengakhiri lawatan.',
+            "Tanjung Emas ialah kawasan rekreasi di muara Sungai Muar. Majlis Perbandaran Muar menyenaraikan joging, berjalan, taman permainan dan berbasikal; jeti mempunyai perkhidmatan perjalanan sungai.",
           ],
           bullets: [
             'Ruang lapang untuk berjalan santai, berjoging dan aktiviti ringan.',
@@ -288,7 +352,7 @@ export const topics: Record<TopicId, Record<Locale, TopicContent>> = {
           heading: 'What the dataran offers',
           paragraphs: [
             'The square works as the open space connecting the riverside promenade with the rest of the park. It is where people gather before walking towards the water or after finishing a workout.',
-            'The Tanjung Emas recreation area is also listed with walking paths, a 9-hole golf course and boat services, which makes the square an easy midpoint to start or end a visit.',
+            "Tanjung Emas is a recreation area at the Muar River estuary. Muar Municipal Council lists jogging, walking, a playground and cycling, with river trips available at the jetty.",
           ],
           bullets: [
             'Open ground for easy walking, jogging and light activity.',
@@ -345,7 +409,7 @@ export const topics: Record<TopicId, Record<Locale, TopicContent>> = {
           heading: '广场里有什么',
           paragraphs: [
             '广场是连接沿河步道与园区其他区域的开阔空间，大家通常在往水岸走之前或运动结束后在这里聚集。',
-            'Tanjung Emas 休闲园区也列有步道、9 洞高尔夫球场与船班服务，因此广场很适合当作行程的起点或终点。',
+            "黄金丹绒公园位于麻坡河出海口。麻坡市议会介绍了慢跑、散步、儿童游乐场及骑行设施，码头另有河上游览活动。",
           ],
           bullets: [
             '开阔场地，适合散步、慢跑与轻量活动。',
