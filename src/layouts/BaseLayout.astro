@@ -43,8 +43,8 @@ const alternateLinks = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
-    {alternateLinks.map((link) => <link rel="alternate" hreflang={link.hreflang} href={link.href} />)}
+    {!noindex && <link rel="canonical" href={canonicalUrl} />}
+    {!noindex && alternateLinks.map((link) => <link rel="alternate" hreflang={link.hreflang} href={link.href} />)}
     {noindex && <meta name="robots" content="noindex, follow" />}
     <meta name="theme-color" content="#0E2E3B" />
     <meta name="color-scheme" content="light" />
@@ -70,7 +70,7 @@ const alternateLinks = [
     <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script>
     <script is:inline define:vars={{ gaId: googleAnalyticsId }}>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){window.dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', gaId);
     </script>

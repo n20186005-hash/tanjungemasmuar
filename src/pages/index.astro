@@ -4,7 +4,7 @@ import HomePage from '../components/HomePage.astro';
 import { home } from '../content/home';
 import { images } from '../data/market';
 import { localePath, type Locale } from '../i18n/locales';
-import { attractionSchema, faqSchema, site } from '../lib/seo';
+import { attractionSchema, faqSchema } from '../lib/seo';
 
 const locale: Locale = 'ms';
 const c = home[locale];
@@ -17,6 +17,6 @@ const jsonLd = [
   faqSchema(c.faq),
 ];
 ---
-<BaseLayout locale={locale} title={site.title(locale)} description={c.meta.description} ogImage={images.hero} jsonLd={jsonLd}>
+<BaseLayout locale={locale} title={c.meta.title} description={c.meta.description} ogImage={images.hero} jsonLd={jsonLd}>
   <HomePage locale={locale} />
 </BaseLayout>

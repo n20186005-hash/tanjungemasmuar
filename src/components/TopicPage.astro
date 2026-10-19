@@ -1,4 +1,6 @@
 ---
+import VerifiedFacts from './VerifiedFacts.astro';
+import { checks } from '../data/checks';
 import { images, links, place } from '../data/market';
 import { topicIds, topicSlug, topics, topicImage, type TopicId } from '../content/topics';
 import type { Locale } from '../i18n/locales';
@@ -39,6 +41,7 @@ const related = topicIds.filter((id) => id !== topicId).map((id) => ({
         {t.heroCtaMap}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s6-5 6-11a6 6 0 1 0-12 0c0 6 6 11 6 11Z" /><circle cx="12" cy="10" r="2" /></svg>
       </a>
+      {topicId === 'jeti' && <a class="btn btn--ghost" href={links.cruise} target="_blank" rel="noopener noreferrer">{checks[locale].operator}</a>}
       <a class="btn btn--ghost" href={localePath(locale)}>{t.breadcrumbHome}</a>
     </div>
   </div>
@@ -52,11 +55,13 @@ const related = topicIds.filter((id) => id !== topicId).map((id) => ({
   </div>
 </section>
 
+<VerifiedFacts locale={locale} />
+
 <section class="section section--tight" id="isi">
   <div class="shell topic-blocks">
     {c.blocks.map((block) => (
       <article class="info-card topic-block">
-        <h3>{block.heading}</h3>
+        <h2>{block.heading}</h2>
         {block.paragraphs && block.paragraphs.map((paragraph) => <p set:html={rich(paragraph)}></p>)}
         {block.bullets && <ul>{block.bullets.map((bullet) => <li set:html={rich(bullet)}></li>)}</ul>}
         {block.callout && <div class="callout">{block.callout}</div>}
