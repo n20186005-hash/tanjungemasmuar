@@ -41,7 +41,7 @@ export const ui: Record<Locale, UiStrings> = {
     heroCtaPlan: 'Rancang lawatan',
     heroCtaMap: 'Buka Google Maps',
     ratingNote:
-      "Google Maps: 4.4/5 daripada 11,757 ulasan, disemak 19 Oktober 2026. Angka ini ialah rekod semakan, bukan paparan langsung.",
+      "Google Maps: 4.4/5 daripada 11,758 ulasan, disemak 19 Oktober 2026. Angka ini ialah rekod semakan, bukan paparan langsung.",
     photoPrefix: 'Foto',
     alt: {
       hero: 'Pemandangan muara Sungai Muar dari Tanjung Emas',
@@ -79,7 +79,7 @@ export const ui: Record<Locale, UiStrings> = {
     heroCtaPlan: 'Plan your visit',
     heroCtaMap: 'Open Google Maps',
     ratingNote:
-      "Google Maps: 4.4/5 from 11,757 reviews, checked on 19 October 2026. This is a dated snapshot, not a live feed.",
+      "Google Maps: 4.4/5 from 11,758 reviews, checked on 19 October 2026. This is a dated snapshot, not a live feed.",
     photoPrefix: 'Photo',
     alt: {
       hero: 'View of the Muar River estuary from Tanjung Emas',
@@ -116,7 +116,7 @@ export const ui: Record<Locale, UiStrings> = {
     langSwitchAria: '切换语言',
     heroCtaPlan: '开始规划行程',
     heroCtaMap: '打开 Google 地图',
-    ratingNote: "Google Maps评分4.4/5，共11,757则评价；核对于2026年10月19日。这是当次记录，并非实时数据。",
+    ratingNote: "Google Maps评分4.4/5，共11,758则评价；核对于2026年10月19日。这是当次记录，并非实时数据。",
     photoPrefix: '摄影',
     alt: {
       hero: '从 Tanjung Emas 望向麻坡河出海口',

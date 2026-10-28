@@ -1,16 +1,45 @@
 import { images } from '../data/market';
 import type { Locale } from '../i18n/locales';
 import type { Faq } from './home';
+import {
+  newTopics1,
+  newTopicIds1,
+  newTopicSlug1,
+  newTopicImage1,
+  type NewTopicId1,
+} from './topics-new-1';
+import {
+  newTopics2,
+  newTopicIds2,
+  newTopicSlug2,
+  newTopicImage2,
+  type NewTopicId2,
+} from './topics-new-2';
 
-export type TopicId = 'jeti' | 'dataran' | 'makan' | 'tarikan';
+export type TopicId =
+  | 'jeti'
+  | 'dataran'
+  | 'makan'
+  | 'tarikan'
+  | NewTopicId1
+  | NewTopicId2;
 
-export const topicIds: TopicId[] = ['jeti', 'dataran', 'makan', 'tarikan'];
+export const topicIds: TopicId[] = [
+  'jeti',
+  'dataran',
+  'makan',
+  'tarikan',
+  ...newTopicIds1,
+  ...newTopicIds2,
+];
 
 export const topicSlug: Record<TopicId, string> = {
   jeti: 'jeti-tanjung-emas',
   dataran: 'dataran-tanjung-emas',
   makan: 'makan-muar',
   tarikan: 'tarikan-muar',
+  ...newTopicSlug1,
+  ...newTopicSlug2,
 };
 
 export const topicImage: Record<TopicId, string> = {
@@ -18,6 +47,8 @@ export const topicImage: Record<TopicId, string> = {
   dataran: images.promenade,
   makan: images.sunset,
   tarikan: images.hero,
+  ...newTopicImage1,
+  ...newTopicImage2,
 };
 
 export interface TopicBlock {
@@ -826,4 +857,6 @@ export const topics: Record<TopicId, Record<Locale, TopicContent>> = {
       ],
     },
   },
+  ...newTopics1,
+  ...newTopics2,
 };

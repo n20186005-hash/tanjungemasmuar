@@ -17,7 +17,7 @@ export const place = {
   longitude: 102.5554697,
   ratingValue: '4.4',
   bestRating: '5',
-  ratingCount: 11757,
+  ratingCount: 11758,
   priceRange: 'Akses taman: percuma; aktiviti operator berasingan',
   openingHours: [
     { opens: '06:00', closes: '09:00' },
